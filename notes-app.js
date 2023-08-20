@@ -1,10 +1,11 @@
-const notes = []
+let notes = []
 
 const filters = {
     searchText: ''
 }
 
 const notesJSON = localStorage.getItem('notes')
+console.log(notesJSON !== null)
 
 if (notesJSON !== null) {
     notes = JSON.parse(notesJSON)
@@ -19,7 +20,11 @@ const renderNotes = function (notes, filters) {
 
     filterNotes.forEach((note) => {
         const newNote = document.createElement('p')
-        newNote.textContent = note.title
+        if (note.title.length > 0) {
+            newNote.textContent = note.title
+        } else {
+            newNote.textContent = 'Unnamed note'
+        }
         document.querySelector('#notes').appendChild(newNote)
     })
 }
@@ -27,9 +32,13 @@ const renderNotes = function (notes, filters) {
 renderNotes(notes, filters)
 
 document.querySelector('#create-note').addEventListener('click', (e) => {
-    console.log('Click button')
-    console.log(e)
     e.target.textContent = 'The button was clicked'
+    notes.push({
+        title: '',
+        body: ''
+    })
+    localStorage.setItem('notes', JSON.stringify(notes))
+    renderNotes(notes, filters)
 })
 
 document.querySelector('input#search-text').addEventListener('input', function (e) {
