@@ -29,8 +29,8 @@ document.querySelector('#filter-by').addEventListener('change', (e) => {
 window.addEventListener('storage', (e) => {
     // debugger
     if (e.key === 'notes') {
-        // notes = JSON.parse(e.newValue)
-        let notes = getSavedNotes()
+        notes = JSON.parse(e.newValue)
+        // let notes = getSavedNotes()
         renderNotes(notes, filters)
     }
 })

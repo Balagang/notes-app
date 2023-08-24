@@ -22,7 +22,7 @@ const removeNote = (id) => {
     })
     console.log(filterId)
     if (filterId > -1) {
-        notes.splice(id, 1)
+        notes.splice(filterId, 1)
     }
 }
 

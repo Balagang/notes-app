@@ -15,7 +15,7 @@ noteTitle.value = note.title
 noteBody.value = note.body
 
 noteTitle.addEventListener('input', (e) => {
-    const updateNote = notes.find((note) => {
+    notes.find((note) => {
         if (note.id === ID) {
             note.title = e.target.value
             console.log(e.target.value)
@@ -25,7 +25,7 @@ noteTitle.addEventListener('input', (e) => {
 })
 
 noteBody.addEventListener('input', (e) => {
-    const updateBody = notes.find((note) => {
+    notes.find((note) => {
         if (note.id === ID) {
             note.body = e.target.value
             console.log(e.target.value)
