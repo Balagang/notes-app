@@ -17,10 +17,8 @@ const saveNotes = (notes) => {
 }
 const removeNote = (id) => {
     console.log(id)
-    const filterId = notes.findIndex((note) => {
-        return note.id === id
-    })
-    console.log(filterId)
+    const filterId = notes.findIndex((note) => note.id === id)
+    // console.log(filterId)
     if (filterId > -1) {
         notes.splice(filterId, 1)
     }
@@ -50,10 +48,37 @@ const generateNoteDOM = (note) => {
     return noteEl
 }
 
-const renderNotes = function (notes, filters) {
-    const filterNotes = notes.filter((note) => {
-        return note.title.toLowerCase().includes(filters.searchText)
-    })
+const sortNotes = (notes, sortBy) => {
+    if (sortBy === 'byEdited') {
+        return notes.sort((a, b) => {
+            if (a.updatedAt > b.updatedAt) {
+                return -1
+            } else if (a.updatedAt < b.updatedAt) {
+                return 1
+            } else { return 0 }
+        })
+    } else if (sortBy === 'byCreated') {
+        return notes.sort((a, b) => {
+            if (a.createdAt > b.createdAt) {
+                return -1
+            } else if (a.createdAt < b.createdAt) {
+                return 1
+            } else { return 0 }
+        })
+    } else if (sortBy === 'byAlphabetical') {
+        return notes.sort((a, b) => {
+            if (a.title.toLowerCase() < b.title.toLowerCase()) {
+                return -1
+            } else if (a.title.toLowerCase() > b.title.toLowerCase()) {
+                return 1
+            } else { return 0 }
+        })
+    } { return 0 }
+}
+
+const renderNotes = (notes, filters) => {
+    notes = sortNotes(notes, filters.sortBy)
+    const filterNotes = notes.filter((note) => note.title.toLowerCase().includes(filters.searchText.toLowerCase()))
     // console.log(filterNotes)
     document.querySelector('#notes').innerHTML = ''
 
@@ -63,3 +88,4 @@ const renderNotes = function (notes, filters) {
     })
 }
 
+const generateLastEdited = (timestamp) => `Last edited ${moment(timestamp).fromNow()}`
