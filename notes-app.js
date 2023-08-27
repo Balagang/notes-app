@@ -1,3 +1,5 @@
+'use strict'
+
 let notes = getSavedNotes()
 
 const filters = {
@@ -54,10 +56,8 @@ const people = [{
 }]
 
 
-const person = people.filter((person) => person.age < 40)
+const teamA = ['Jonatha', 'Peter', 'Matthew',]
 
-console.log(person)
+const message = teamA.length <= 3 ? `Team size: ${teamA.length}` : 'Too many people on your team'
 
-const findPerson = people.find((person) => person.name.toLocaleLowerCase().includes('t'))
-
-console.log(findPerson)
+console.log(message)

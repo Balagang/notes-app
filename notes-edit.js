@@ -1,3 +1,4 @@
+'use strict'
 const ID = location.hash.substring(1)
 // console.log(ID)
 let notes = getSavedNotes()
@@ -7,7 +8,7 @@ const dateElemet = document.querySelector('#last-edited')
 
 let note = notes.find((note) => note.id === ID)
 
-if (note === undefined) {
+if (!note) {
     location.assign('../notes-app/index.html')
 }
 noteTitle.value = note.title

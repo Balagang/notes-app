@@ -1,17 +1,17 @@
 // import { v4 as uuidv4 } from 'uuid';
 // console.log(uuidv4())
 // console.log(crypto.randomUUID())
-
+'use strict'
+// const public = true // public keyword is a reverved identifier
 const getSavedNotes = () => {
     const notesJSON = localStorage.getItem('notes')
     // console.log(notesJSON !== null)
-    if (notesJSON !== null) {
-        return JSON.parse(notesJSON)
-    } else {
+    try {
+        return notesJSON ? JSON.parse(notesJSON) : []
+    } catch (e) {
         return []
     }
 }
-
 const saveNotes = (notes) => {
     localStorage.setItem('notes', JSON.stringify(notes))
 }
