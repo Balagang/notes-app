@@ -49,6 +49,7 @@ const generateNoteDOM = (note) => {
 }
 
 const sortNotes = (notes, sortBy) => {
+    // debugger
     if (sortBy === 'byEdited') {
         return notes.sort((a, b) => {
             if (a.updatedAt > b.updatedAt) {

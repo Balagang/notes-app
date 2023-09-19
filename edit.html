@@ -1,18 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="styles/styles.css">
     <title>Edit page</title>
 </head>
 <body>
-    This is the editing page
-    <a href="/notes-app/index.html">Home page</a>
+    <header class="header">
+        <div class="container">
+            <h1 class="header__title">Notes App</h1>
+            <h2 class="header__subtitle">Take notes and never forget</h2>
+        </div>
+    </header>
+    <div class="actions">
+        <div class="actions__container actions__container--spaced" >
+            <a href="/notes-app/index.html">Home</a>
+            <span id="last-edited"></span>
+        </div>
+    </div>
 
     <input id="note-title" placeholder="Note title" type="text">
-    <span id="last-edited"></span>
     <textarea name="" id="note-body" cols="30" rows="10"></textarea>
-    <button id="remove-note">Remove note</button>
+    <button class="button" id="remove-note">Remove note</button>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment-with-locales.min.js" integrity="sha512-42PE0rd+wZ2hNXftlM78BSehIGzezNeQuzihiBCvUEB3CVxHvsShF86wBWwQORNxNINlBPuq7rG4WWhNiTVHFg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="notes-functions.js"></script>
-    <script src="notes-edit.js"></script>
+    <script src="scripts/notes-functions.js"></script>
+    <script src="scripts/notes-edit.js"></script>
 </body>
 </html>

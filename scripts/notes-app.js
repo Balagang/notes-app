@@ -42,12 +42,10 @@ window.addEventListener('storage', (e) => {
     }
 })
 
-
 const people = [{
     name: 'Andrew',
     age: 28
-},
-{
+}, {
     name: 'Robert',
     age: 32
 }, {
@@ -55,9 +53,7 @@ const people = [{
     age: 39
 }]
 
-
 const teamA = ['Jonatha', 'Peter', 'Matthew',]
-
 const message = teamA.length <= 3 ? `Team size: ${teamA.length}` : 'Too many people on your team'
 
 console.log(message)
