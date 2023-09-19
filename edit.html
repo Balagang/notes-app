@@ -17,10 +17,12 @@
             <span id="last-edited"></span>
         </div>
     </div>
+    <div class="container">
+        <input class="title-input" id="note-title" placeholder="Note title" type="text">
+        <textarea class="body-input" name="" id="note-body" cols="30" rows="10"></textarea>
+        <button class="button button--secondary" id="remove-note">Remove note</button>
+    </div>
 
-    <input id="note-title" placeholder="Note title" type="text">
-    <textarea name="" id="note-body" cols="30" rows="10"></textarea>
-    <button class="button" id="remove-note">Remove note</button>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment-with-locales.min.js" integrity="sha512-42PE0rd+wZ2hNXftlM78BSehIGzezNeQuzihiBCvUEB3CVxHvsShF86wBWwQORNxNINlBPuq7rG4WWhNiTVHFg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="scripts/notes-functions.js"></script>
     <script src="scripts/notes-edit.js"></script>
